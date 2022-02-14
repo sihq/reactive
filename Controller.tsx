@@ -45,7 +45,7 @@ export const ControllerContext = createContext<ControllerContext>({
     bind: (): object => ({}),
 });
 
-export default function Controller({ controller }: ControllerParameters, Component: any): React.ComponentType {
+export const Controller = ({ controller }: ControllerParameters, Component: any): React.ComponentType => {
     class Controller extends React.PureComponent<{ navigate: NavigateFunction }, ControllerState> {
         constructor(props: any) {
             super(props);
@@ -214,4 +214,6 @@ export default function Controller({ controller }: ControllerParameters, Compone
         const parameters = useParams();
         return <Controller navigate={navigate} {...parameters} {...props} />;
     };
-}
+};
+
+export default Controller;
